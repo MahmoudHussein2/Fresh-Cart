@@ -1,0 +1,120 @@
+@import "tailwindcss";
+body {
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+@theme {
+  --color-primary-50: #f0fdf5;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+  --font-poppins: "Poppins", sans-serif;
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-2xl: 1320px;
+  --animate-slide-in: slide-in 400ms ease-out;
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+@theme {
+}
+
+:root {
+  --color-primary-50: #f0fdf5;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+}
+
+@layer base {
+  body {
+    @apply font-poppins;
+  }
+
+  span,
+  a {
+    @apply inline-block;
+  }
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md bg-gray-200 text-gray-900 hover:bg-gray-300 cursor-pointer transition-colors duration-200;
+  }
+  .form-control {
+    @apply px-3 py-2 outline-0 border rounded-md border-gray-400/40 focus:border-green-500 focus:outline-none;
+  }
+}
+
+@utility container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-primary-800);
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  animation: rotation 2s ease-in-out infinite;
+}
+.loader::after {
+  border-color: var(--color-primary-500);
+  animation-delay: 1s;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply size-12! rounded-full bg-primary-400/50 after:text-lg! after:font-bold! after:text-white! hover:bg-primary-600/50 transition-colors duration-300;
+}
+
+.swiper-pagination-bullet-active {
+  @apply w-6! rounded-full! bg-white!;
+}
